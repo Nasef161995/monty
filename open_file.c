@@ -23,7 +23,7 @@ void run(stack_t **stack, char *filename)
     if (file == NULL)
     {
         printf("Error: Can't open file %s\n", filename);
-        exit(EXIT_FAILURE);
+        return;
     }
     while (fgets(line, sizeof(line), file) != NULL)
     {
@@ -39,7 +39,7 @@ void run(stack_t **stack, char *filename)
         {
             free_stack(stack);
             printf("L%d: unknown instruction %s\n", count, line_copy);
-            exit(EXIT_FAILURE);
+            
         }
     }
     fclose(file);
