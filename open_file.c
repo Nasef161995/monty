@@ -22,7 +22,8 @@ instruction_t operators_code[] = {{"push", op_push},
 {"add", op_add},
 {"nop", op_nop},
 {"sub", op_sub},
-{"div", op_div}
+{"div", op_div},
+{"mul", op_mul}
 };
 
 y.file = fopen(filename, "r");
