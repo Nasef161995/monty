@@ -23,8 +23,8 @@ instruction_t operators_code[] = {{"push", op_push},
 {"nop", op_nop},
 {"sub", op_sub},
 {"div", op_div},
-{"mul", op_mul}
-};
+{"mul", op_mul},
+{"mod", op_mod}};
 
 y.file = fopen(filename, "r");
 if (y.file == NULL)

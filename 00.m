@@ -1,7 +1,7 @@
 push 10
-
-
-mul
+push      20
+push 0
+mod
   
 
 
