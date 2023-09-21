@@ -18,8 +18,7 @@ stack = NULL;
 
 if (argc != 2)
 {
-printf("USAGE: monty file\n");
-error_exit(&stack);
+    argcError();
 }
 
 run(&stack, argv[1]);

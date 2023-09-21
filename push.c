@@ -15,15 +15,16 @@ void op_push(stack_t **stack, unsigned int line_number)
     ch = strtok(NULL, " ,\n");
     if (ch == NULL)
     {
-        printf("L%d: usage: push integer\n", line_number);
-        error_exit(stack);
+        free_stack(stack);
+        fprintf(stderr, "L%d: usage: push integer\n", line_number);
+        exit(EXIT_FAILURE);
     }
 
     new = malloc(sizeof(stack_t));
     if (new == NULL)
     {
-        printf("Error: malloc failed\n");
-        error_exit(stack);
+        fprintf(stderr, "Error: malloc failed\n");
+        exit(EXIT_FAILURE);
     }
 
     data = atoi(ch);

@@ -22,8 +22,7 @@ instruction_t operators_code[] = {{"push", op_push},
 file = fopen(filename, "r");
 if (file == NULL)
 {
-printf("Error: Can't open file %s\n", filename);
-error_exit(stack);
+fileError(filename);
 }
 while (fgets(line, sizeof(line), file) != NULL)
 {
@@ -37,8 +36,7 @@ if (i >= 0)
 operators_code[i].f(stack, count);
 else
 {
-printf("L%d: unknown instruction %s\n", count, line_copy);
-error_exit(stack);
+instructError(count, line_copy, line);
 }
 }
 check = fclose(file);

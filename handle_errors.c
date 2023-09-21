@@ -12,7 +12,6 @@ int find_opcode(char *opcode, instruction_t operators_code[])
         if (strcmp(opcode, operators_code[i].opcode) == 0)
             return (i);
     }
-
     return (-1);
 }
 
@@ -34,16 +33,35 @@ void free_stack(stack_t **stack)
         free(*stack);
     }
 }
-
-
 /**
- * error_exit - frees and exits
- * @stack: pointer to stack
- *
+ * argcError - .
+ * Return: .
  */
-void error_exit(stack_t **stack)
+void argcError(void)
 {
-    
-    free_stack(stack);
+    fprintf(stderr, "USAGE: monty file\n");
+    exit(EXIT_FAILURE);
+}
+/**
+ * fileError - .
+ * @file: .
+ * Return: .
+ */
+void fileError(const char *file)
+{
+    fprintf(stderr, "Error: Can't open file %s\n", file);
+    exit(EXIT_FAILURE);
+}
+/**
+ * instructError - .
+ * @line: .
+ * @line_copy: .
+ * @count: .
+ * Return: .
+ */
+void instructError(int count, char *line_copy, char *line)
+{
+    fprintf(stderr, "L%d: unknown instruction %s\n", count, line_copy);
+    free(line);
     exit(EXIT_FAILURE);
 }

@@ -7,6 +7,7 @@
 #include <string.h>
 #include <fcntl.h>
 #include <sys/types.h>
+extern FILE *file;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -41,12 +42,14 @@ typedef struct instruction_s
 
 
 void free_stack(stack_t **stack);
-void error_exit(stack_t **stack);
 
 int find_opcode(char *opcode, instruction_t operators_code[]);
 
 void run(stack_t **stack, char *filename);
 
+void instructError(int count, char *line_copy, char *line);
+void fileError(const char *file);
+void argcError(void);
 void op_push(stack_t **stack, unsigned int line_number);
 void op_pall(stack_t **stack, unsigned int line_number __attribute__((unused)));
 void op_pint(stack_t **stack, unsigned int line_number);
