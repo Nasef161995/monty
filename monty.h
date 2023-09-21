@@ -69,5 +69,6 @@ void op_add(stack_t **stack, unsigned int line_number);
 void op_nop(stack_t **stack __attribute__((unused)),
 unsigned int line_number __attribute__((unused)));
 void op_sub(stack_t **stack, unsigned int line_number);
+void op_div(stack_t **stack, unsigned int line_number);
 
 #endif
