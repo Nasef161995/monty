@@ -45,6 +45,6 @@ void error_exit(stack_t **stack)
 {
     
     free_stack(stack);
-    fclose(my_var.file);
+    fclose(file);
     exit(EXIT_FAILURE);
 }

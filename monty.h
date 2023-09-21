@@ -7,7 +7,7 @@
 #include <string.h>
 #include <fcntl.h>
 #include <sys/types.h>
-
+extern FILE *file;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -38,16 +38,7 @@ typedef struct instruction_s
     void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-typedef struct my_var_s
-{
-    char *arg1;
-    stack_t *stack;
-    FILE *file;
-    char *line;
 
-} my_var_t;
-
-extern my_var_t my_var;
 
 void free_stack(stack_t **stack);
 void error_exit(stack_t **stack);
