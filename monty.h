@@ -1,13 +1,12 @@
 #ifndef MONTY_H
 #define MONTY_H
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <stdbool.h>
 #include <string.h>
-#include <fcntl.h>
 #include <sys/types.h>
-extern FILE *file;
+#define _POSIX_C_SOURCE 200809L
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -58,5 +57,6 @@ void op_swap(stack_t **stack, unsigned int line_number);
 void op_add(stack_t **stack, unsigned int line_number);
 void op_nop(stack_t **stack __attribute__((unused)),
             unsigned int line_number __attribute__((unused)));
+void op_sub(stack_t **stack, unsigned int line_number);
 
 #endif

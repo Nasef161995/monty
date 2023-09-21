@@ -7,7 +7,7 @@
 int find_opcode(char *opcode, instruction_t operators_code[])
 {
     int i;
-    for (i = 0; i < 7; i++)
+    for (i = 0; i < 8; i++)
     {
         if (strcmp(opcode, operators_code[i].opcode) == 0)
             return (i);
