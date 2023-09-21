@@ -1,11 +1,10 @@
 #ifndef MONTY_H
 #define MONTY_H
-#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
-#define _POSIX_C_SOURCE 200809L
+
 
 
 /**
@@ -19,10 +18,22 @@
  */
 typedef struct stack_s
 {
-    int n;
-    struct stack_s *prev;
-    struct stack_s *next;
+int n;
+struct stack_s *prev;
+struct stack_s *next;
 } stack_t;
+
+/**
+ * val_s - struct to file pointer
+ * @file: file pointer
+ * Description: structure file pointer
+ */
+typedef struct val_s
+{
+FILE *file;
+} val_t;
+extern val_t y;
+
 
 /**
  * struct instruction_s - opcode and its function
@@ -34,10 +45,9 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-    char *opcode;
-    void (*f)(stack_t **stack, unsigned int line_number);
+char *opcode;
+void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-
 
 
 void free_stack(stack_t **stack);
@@ -46,17 +56,18 @@ int find_opcode(char *opcode, instruction_t operators_code[]);
 
 void run(stack_t **stack, char *filename);
 
-void instructError(int count, char *line_copy, char *line);
+void instructError(int count, char *line_copy);
 void fileError(const char *file);
 void argcError(void);
 void op_push(stack_t **stack, unsigned int line_number);
-void op_pall(stack_t **stack, unsigned int line_number __attribute__((unused)));
+void op_pall(stack_t **stack,
+unsigned int line_number __attribute__((unused)));
 void op_pint(stack_t **stack, unsigned int line_number);
 void op_pop(stack_t **stack, unsigned int line_number);
 void op_swap(stack_t **stack, unsigned int line_number);
 void op_add(stack_t **stack, unsigned int line_number);
 void op_nop(stack_t **stack __attribute__((unused)),
-            unsigned int line_number __attribute__((unused)));
+unsigned int line_number __attribute__((unused)));
 void op_sub(stack_t **stack, unsigned int line_number);
 
 #endif

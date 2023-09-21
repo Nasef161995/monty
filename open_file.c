@@ -1,17 +1,19 @@
 #include "monty.h"
+val_t y;
 /**
  * run - rum profram
  * @stack: stack list
  * @filename: file name
  * Return: .
  */
+
 void run(stack_t **stack, char *filename)
 {
 char line[100];
 char *line_copy, *_opcode;
 int i, check;
 unsigned int count = 0;
-FILE *file;
+
 instruction_t operators_code[] = {{"push", op_push},
 {"pall", op_pall},
 {"pint", op_pint},
@@ -20,13 +22,13 @@ instruction_t operators_code[] = {{"push", op_push},
 {"add", op_add},
 {"nop", op_nop},
 {"sub", op_sub}};
-file = fopen(filename, "r");
 
-if (file == NULL)
+y.file = fopen(filename, "r");
+if (y.file == NULL)
 {
 fileError(filename);
 }
-while (fgets(line, sizeof(line), file) != NULL)
+while (fgets(line, sizeof(line), y.file) != NULL)
 {
 count++;
 line_copy = strcat(line, "\0");
@@ -38,10 +40,10 @@ if (i >= 0)
 operators_code[i].f(stack, count);
 else
 {
-instructError(count, line_copy, line);
+instructError(count, line_copy);
 }
 }
-check = fclose(file);
+check = fclose(y.file);
 if (check == -1)
 exit(-1);
 }

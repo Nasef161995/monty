@@ -2,36 +2,38 @@
 /**
  * find_opcode - .
  * @opcode: .
+ * @operators_code: ........
  * Return: .
  */
+
 int find_opcode(char *opcode, instruction_t operators_code[])
 {
-    int i;
-    for (i = 0; i < 8; i++)
-    {
-        if (strcmp(opcode, operators_code[i].opcode) == 0)
-            return (i);
-    }
-    return (-1);
+int i;
+for (i = 0; i < 8; i++)
+{
+if (strcmp(opcode, operators_code[i].opcode) == 0)
+return (i);
+}
+return (-1);
 }
 
 /**
- * find_opcode - .
+ * free_stack - .
  * @stack: .
  * Return: .
  */
 void free_stack(stack_t **stack)
 {
 
-    if (*stack)
-    {
-        while ((*stack)->next != NULL)
-        {
-            *stack = (*stack)->next;
-            free((*stack)->prev);
-        }
-        free(*stack);
-    }
+if (*stack)
+{
+while ((*stack)->next != NULL)
+{
+*stack = (*stack)->next;
+free((*stack)->prev);
+}
+free(*stack);
+}
 }
 /**
  * argcError - .
@@ -39,8 +41,8 @@ void free_stack(stack_t **stack)
  */
 void argcError(void)
 {
-    fprintf(stderr, "USAGE: monty file\n");
-    exit(EXIT_FAILURE);
+fprintf(stderr, "USAGE: monty file\n");
+exit(EXIT_FAILURE);
 }
 /**
  * fileError - .
@@ -49,19 +51,18 @@ void argcError(void)
  */
 void fileError(const char *file)
 {
-    fprintf(stderr, "Error: Can't open file %s\n", file);
-    exit(EXIT_FAILURE);
+fprintf(stderr, "Error: Can't open file %s\n", file);
+exit(EXIT_FAILURE);
 }
 /**
  * instructError - .
- * @line: .
  * @line_copy: .
  * @count: .
  * Return: .
  */
-void instructError(int count, char *line_copy, char *line)
+void instructError(int count, char *line_copy)
 {
-    fprintf(stderr, "L%d: unknown instruction %s\n", count, line_copy);
-    free(line);
-    exit(EXIT_FAILURE);
+fprintf(stderr, "L%d: unknown instruction %s\n", count, line_copy);
+fclose(y.file);
+exit(EXIT_FAILURE);
 }

@@ -14,6 +14,7 @@ if (*stack == NULL || (*stack)->next == NULL)
 
 free_stack(stack);
 fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+fclose(y.file);
 exit(EXIT_FAILURE);
 }
 else

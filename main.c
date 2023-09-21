@@ -13,12 +13,13 @@
  */
 int main(int argc, char **argv)
 {
+
 stack_t *stack;
 stack = NULL;
 
 if (argc != 2)
 {
-    argcError();
+argcError();
 }
 
 run(&stack, argv[1]);
