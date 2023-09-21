@@ -24,13 +24,13 @@ instruction_t operators_code[] = {{"push", op_push},
 {"sub", op_sub},
 {"div", op_div},
 {"mul", op_mul},
-{"mod", op_mod}};
+{"mod", op_mod},
+{"pchar", op_pchar},
+{"pstr", op_pchar}};
 
 y.file = fopen(filename, "r");
 if (y.file == NULL)
-{
 fileError(filename);
-}
 while (fgets(line, sizeof(line), y.file) != NULL)
 {
 count++;
