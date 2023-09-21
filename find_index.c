@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * find_opcode - .
  * @opcode: .
@@ -44,7 +43,8 @@ void free_stack(stack_t **stack)
  */
 void error_exit(stack_t **stack)
 {
-    if (*stack)
-        free_stack(stack);
+    
+    free_stack(stack);
+    fclose(my_var.file);
     exit(EXIT_FAILURE);
 }
