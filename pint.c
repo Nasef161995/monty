@@ -9,9 +9,9 @@ void op_pint(stack_t **stack, unsigned int line_number)
 {
     if ((*stack) == NULL)
     {
-        free_stack(stack);
+        
         printf("L%d: can't pint, stack empty\n", line_number);
-        return;
+        error_exit(stack);
     }
     printf("%d\n", (*stack)->n);
 }

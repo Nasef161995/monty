@@ -38,6 +38,7 @@ typedef struct instruction_s
 } instruction_t;
 
 void free_stack(stack_t **stack);
+void error_exit(stack_t **stack);
 
 int find_opcode(char *opcode, instruction_t operators_code[]);
 

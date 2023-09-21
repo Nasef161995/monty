@@ -5,6 +5,7 @@
  * @line_number: .....
  * Return: ......
  */
+
 void op_push(stack_t **stack, unsigned int line_number)
 {
     stack_t *new;
@@ -14,16 +15,15 @@ void op_push(stack_t **stack, unsigned int line_number)
     ch = strtok(NULL, " ,\n");
     if (ch == NULL)
     {
-        free_stack(stack);
         printf("L%d: usage: push integer\n", line_number);
-        return;
+        error_exit(stack);
     }
 
     new = malloc(sizeof(stack_t));
     if (new == NULL)
     {
         printf("Error: malloc failed\n");
-        return;
+        error_exit(stack);
     }
 
     data = atoi(ch);

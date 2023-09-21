@@ -9,7 +9,7 @@ void run(stack_t **stack, char *filename)
 {
     char line[100];
     char *line_copy, *_opcode;
-    int i;
+    int i, check;
     unsigned int count = 0;
     FILE *file;
     instruction_t operators_code[] = {{"push", op_push},
@@ -23,7 +23,7 @@ void run(stack_t **stack, char *filename)
     if (file == NULL)
     {
         printf("Error: Can't open file %s\n", filename);
-        return;
+        error_exit(stack);
     }
     while (fgets(line, sizeof(line), file) != NULL)
     {
@@ -37,10 +37,11 @@ void run(stack_t **stack, char *filename)
             operators_code[i].f(stack, count);
         else
         {
-            free_stack(stack);
             printf("L%d: unknown instruction %s\n", count, line_copy);
-            
+            error_exit(stack);
         }
     }
-    fclose(file);
+    check = fclose(file);
+    if (check == -1)
+        exit(-1);
 }
