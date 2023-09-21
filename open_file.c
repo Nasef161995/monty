@@ -31,7 +31,7 @@ void run(stack_t **stack, char *filename)
         count++;
         line_copy = strcat(line, "\0");
         _opcode = strtok(line_copy, " ,\n");
-        if (_opcode == NULL)
+        if (_opcode == NULL || _opcode[0] == '#')
             continue;
         i = find_opcode(_opcode, operators_code);
         if (i >= 0)
