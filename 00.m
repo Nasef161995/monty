@@ -1,3 +1,3 @@
-push 10
+         vvvpush 10
 push 20
-pchar  
+pall 

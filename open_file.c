@@ -43,7 +43,7 @@ if (i >= 0)
 operators_code[i].f(stack, count);
 else
 {
-instructError(count, line_copy);
+instructError(count, _opcode);
 }
 }
 check = fclose(y.file);
