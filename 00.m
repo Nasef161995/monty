@@ -1,4 +1,4 @@
-    push 10
+    k push10
 push -1
 pall 
 pchar

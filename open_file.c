@@ -42,7 +42,7 @@ i = find_opcode(_opcode, operators_code);
 if (i >= 0)
 operators_code[i].f(stack, count);
 else
-instructError(count, _opcode);
+instructError(count, line_copy);
 }
 check = fclose(y.file);
 if (check == -1)
