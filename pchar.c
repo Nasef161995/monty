@@ -14,7 +14,7 @@ fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 fclose(y.file);
 exit(EXIT_FAILURE);
 }
-if ((*stack)->n > 127 && (*stack)->n != 0)
+if (!((*stack)->n >= 0 && (*stack)->n <= 127))
 {
 free_stack(stack);
 fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
