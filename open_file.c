@@ -4,7 +4,7 @@ val_t y;
  * run - rum profram
  * @stack: stack list
  * @filename: file name
- * Return: .
+ * Return: void
  */
 
 void run(stack_t **stack, char *filename)
@@ -42,9 +42,7 @@ i = find_opcode(_opcode, operators_code);
 if (i >= 0)
 operators_code[i].f(stack, count);
 else
-{
 instructError(count, _opcode);
-}
 }
 check = fclose(y.file);
 if (check == -1)
