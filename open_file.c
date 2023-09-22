@@ -15,19 +15,19 @@ int i, check;
 unsigned int count = 0;
 
 instruction_t operators_code[] = {{"push", op_push},
-                                  {"pall", op_pall},
-                                  {"pint", op_pint},
-                                  {"pop", op_pop},
-                                  {"swap", op_swap},
-                                  {"add", op_add},
-                                  {"nop", op_nop},
-                                  {"sub", op_sub},
-                                  {"div", op_div},
-                                  {"mul", op_mul},
-                                  {"mod", op_mod},
-                                  {"pchar", op_pchar},
-                                  {"pstr", op_pstr},
-                                  {"rotl", op_rotl}};
+{"pall", op_pall},
+{"pint", op_pint},
+{"pop", op_pop},
+{"swap", op_swap},
+{"add", op_add},
+{"nop", op_nop},
+{"sub", op_sub},
+{"div", op_div},
+{"mul", op_mul},
+{"mod", op_mod},
+{"pchar", op_pchar},
+{"pstr", op_pstr},
+{"rotl", op_rotl}};
 
 y.file = fopen(filename, "r");
 if (y.file == NULL)
