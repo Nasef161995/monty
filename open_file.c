@@ -26,7 +26,8 @@ instruction_t operators_code[] = {{"push", op_push},
 {"mul", op_mul},
 {"mod", op_mod},
 {"pchar", op_pchar},
-{"pstr", op_pchar}};
+{"pstr", op_pstr}
+};
 
 y.file = fopen(filename, "r");
 if (y.file == NULL)
@@ -42,7 +43,7 @@ i = find_opcode(_opcode, operators_code);
 if (i >= 0)
 operators_code[i].f(stack, count);
 else
-instructError(count, line_copy);
+instructError(count, _opcode);
 }
 check = fclose(y.file);
 if (check == -1)
